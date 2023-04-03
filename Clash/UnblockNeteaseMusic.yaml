@@ -49,17 +49,13 @@ proxy-groups:
       - NeteaseMusic
     proxies:
       - DIRECT
-  - name: ‼️ 免费代理，如遇收费请举报
-    type: select
-    proxies:
-      - DIRECT
 
 rule-providers:
   NeteaseMusic:
     type: http
     behavior: classical
     path: ./RuleSet/NeteaseMusic.yaml
-    url: https://cdn.staticaly.com/gh/DesperadoJ/Rules-for-UnblockNeteaseMusic/master/Clash/RuleSet/NeteaseMusic.yaml
+    url: https://raw.githubusercontent.com/loadinghtml/Rules-for-UnblockNeteaseMusic/master/Clash/Proxy/NeteaseMusic.yaml
     interval: 86400
 
 rules:
