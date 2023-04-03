@@ -1,7 +1,6 @@
 # URL:     https://raw.githubusercontent.com/DesperadoJ/Rules-for-UnblockNeteaseMusic/master/Clash/UnblockNeteaseMusic.yaml
 # Project: https://github.com/DesperadoJ/Rules-for-UnblockNeteaseMusic
 # Note:    This proxy is for free, please complain the seller if you were charged
-#          本代理完全免费，如遇收费请投诉举报卖家
 
 mixed-port: 7890
 allow-lan: false
@@ -35,7 +34,7 @@ proxy-providers:
   NeteaseMusic:
     type: http
     path: ./Proxy/NeteaseMusic.yaml
-    url: https://cdn.staticaly.com/gh/DesperadoJ/Rules-for-UnblockNeteaseMusic/master/Clash/Proxy/NeteaseMusic.yaml
+    url: https://raw.githubusercontent.com/loadinghtml/Rules-for-UnblockNeteaseMusic/master/Clash/Proxy/NeteaseMusic.yaml
     interval: 3600
     health-check:
       enable: true
