@@ -46,15 +46,13 @@ proxy-groups:
     type: select
     use:
       - NeteaseMusic
-    proxies:
-      - DIRECT
 
 rule-providers:
   NeteaseMusic:
     type: http
     behavior: classical
     path: ./RuleSet/NeteaseMusic.yaml
-    url: https://raw.githubusercontent.com/loadinghtml/Rules-for-UnblockNeteaseMusic/master/Clash/Proxy/NeteaseMusic.yaml
+    url: https://raw.githubusercontent.com/loadinghtml/Rules-for-UnblockNeteaseMusic/master/Clash/RuleSet/NeteaseMusic.yaml
     interval: 86400
 
 rules:
