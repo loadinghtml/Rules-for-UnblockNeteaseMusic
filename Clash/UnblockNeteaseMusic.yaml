@@ -46,8 +46,8 @@ proxy-groups:
     type: select
     use:
       - NeteaseMusic
-      proxies:
-        - DIRECT
+    proxies:
+      - DIRECT
 
 rule-providers:
   NeteaseMusic:
