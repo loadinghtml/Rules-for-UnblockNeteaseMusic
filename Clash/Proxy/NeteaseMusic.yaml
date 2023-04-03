@@ -5,14 +5,6 @@
 
 proxies:
   - name: 🎶 解锁
-    type: ss
-    server: music.desperadoj.com
-    port: 30001
-    cipher: aes-128-gcm
-    password: desperadoj.com_free_proxy_etg0
-  - name: ‼️ 免费代理，遇收费请举报
-    type: ss
-    server: 127.0.0.1
-    port: 8080
-    cipher: aes-128-gcm
-    password: This_proxy_is_for_free
+    type: http
+    server: 159.75.86.147
+    port: 5200
