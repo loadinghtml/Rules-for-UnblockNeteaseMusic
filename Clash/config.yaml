@@ -1,7 +1,6 @@
-port: 7890 # port of HTTP
-socks-port: 7891 # port of SOCKS5
+mixed-port: 7890
 redir-port: 7892 # redir port for Linux and macOS
-allow-lan: false
+allow-lan: true
 
 # Only applicable when setting allow-lan to true
 # "*": bind all IP addresses
@@ -12,48 +11,33 @@ bind-address: "*"
 # Rule / Global/ Direct (default is Rule)
 mode: Rule
 
-# set log level to stdout (default is info)
-# info / warning / error / debug / silent
 log-level: info
-
-external-controller: 127.0.0.1:9090 # RESTful API for clash
-
-# you can put the static web resource (such as clash-dashboard) to a directory, and clash would serve in `${API}/ui`
-# input is a relative path to the configuration directory or an absolute path
-external-ui: "path/to/local/clash-dashboard"
-
-secret: "" # Secret for RESTful API (Optional)
-
-experimental: # experimental feature
-  ignore-resolve-fail: true # ignore dns resolve fail, default value is true
-
-# authentication of local SOCKS5/HTTP(S) server
-authentication:
-  - "user1:pass1"
-  - "user2:pass2"
-
-# experimental hosts, support wildcard (e.g. *.clash.dev Even *.foo.*.example.com)
-# static domain has a higher priority than wildcard domain (foo.example.com > *.example.com)
-hosts:
-  '*.clash.dev': 127.0.0.1
-  'alpha.clash.dev': '::1'
+external-controller: 127.0.0.1:9090
 
 dns:
-  enable: true # set true to enable dns (default is false)
-  ipv6: false # default is false
-  listen: 0.0.0.0:53
-  enhanced-mode: fake-ip # or redir-host
-  fake-ip-range: 198.18.0.1/16 # if you don't know what it is, don't change it
+  enable: true
+  listen: 0.0.0.0:5353
+  enhanced-mode: fake-ip
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+    - 1.0.0.1
+    - 8.8.4.4
   nameserver:
-    - 114.114.114.114
-    - tcp://1.1.1.1
-  fallback: # concurrent request with nameserver, fallback used when GEOIP country isn't CN
-    - tls://dns.rubyfish.cn:853 # dns over tls
-    - https://1.1.1.1/dns-query # dns over https
+    - 119.29.29.29
+    - 223.5.5.5
+    - 1.0.0.1
+    - 8.8.4.4
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://doh.dns.sb/dns-query
+    - https://public.dns.iij.jp/dns-query
   fallback-filter:
-    geoip: true # default
-    ipcidr: # ips in these subnets will be considered polluted
-      - 240.0.0.0/4
+    geoip: true
+    domain:
+      - '+.desperadoj.com'
+      
+proxy-providers:
 Proxy:
 # shadowsocks
 # The supported ciphers(encrypt methods):
@@ -84,6 +68,7 @@ Proxy:
   # tls: true # https
   # skip-cert-verify: true
 
+proxy-groups:
 Proxy Group:
 
 - name: googleone
@@ -96,7 +81,7 @@ Proxy Group:
   type: select
   proxies:
     - DIRECT
-  
+rule-providers:  
 Rule:
 - DOMAIN-SUFFIX,cloud.cupronickel.goog,googleone
 - DOMAIN-SUFFIX,googleapis.com,googleone
